@@ -4,7 +4,6 @@ import LoginBox from "../components/login_box";
 const login = () => {
   return (
     <div>
-      login
       <LoginBox />
     </div>
   );
