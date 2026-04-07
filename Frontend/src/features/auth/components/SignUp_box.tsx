@@ -1,15 +1,16 @@
 import React from "react";
-import Button from "./button";
+import Button from "../../../components/button";
 import { useState } from "react";
-import { signup } from "../apis/functions";
+import { signup } from "../api/signup";
 const SignUp_box = () => {
   const [UserName, setUserName] = useState("");
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const SignUp = signup(UserName, Email, Password);
+  const signUp = signup(UserName, Email, Password);
+  // const signUp = signup()
   return (
     <div className="flex justify-center items-center h-screen">
-      <form className="form flex flex-col items-center" onSubmit={SignUp}>
+      <form className="form flex flex-col items-center" onSubmit={signUp}>
         <p className="form-title">Create account</p>
         <div className="input-container">
           <input

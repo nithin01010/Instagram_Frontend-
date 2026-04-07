@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "./button";
-import { login } from "../apis/functions";
+import Button from "../../../components/button";
+import { login } from "../api/functions";
 
 const login_box = () => {
   const [UserName, setUserName] = useState("");

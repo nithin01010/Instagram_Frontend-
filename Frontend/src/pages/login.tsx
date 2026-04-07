@@ -1,13 +1,12 @@
 import React from "react";
-import LoginBox from "../components/login_box";
-import { Navigate, redirect } from "react-router-dom";
-import { check_token } from "../apis/functions";
+import LoginBox from "../features/auth/components/login_box";
+import { useRedirectIfLoggedIn } from "../features/auth/api/functions";
+
 const login = () => {
-  // check_token();
-  if (localStorage.getItem("access_token") != null) {
-    check_token();
-    return <Navigate to="/profile" />;
-  }
+  const checking = useRedirectIfLoggedIn();
+
+  if (checking) return null;
+
   return (
     <div>
       <LoginBox />

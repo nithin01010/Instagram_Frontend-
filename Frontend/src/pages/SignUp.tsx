@@ -1,13 +1,12 @@
 import React from "react";
-import SignUp_box from "../components/SignUp_box";
-import { redirect } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import { check_token } from "../apis/functions";
+import SignUp_box from "../features/auth/components/SignUp_box";
+import { useRedirectIfLoggedIn } from "../features/auth/api/authHooks";
+
 const SignUp = () => {
-  if (localStorage.getItem("access_token") != null) {
-    check_token();
-    return <Navigate to="/profile" />;
-  }
+  const checking = useRedirectIfLoggedIn();
+
+  if (checking) return null;
+
   return <SignUp_box />;
 };
 

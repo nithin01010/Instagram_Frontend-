@@ -3,6 +3,8 @@ import React from "react";
 import Login from "./pages/login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/profile";
+import CreatePost from "./pages/CreatePost";
+import ViewPost from "./pages/ViewPost";
 const App = () => {
   return (
     <BrowserRouter>
@@ -10,9 +12,10 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/create-post" element={<CreatePost />} />
+        <Route path="/view-post" element={<ViewPost id="hf" />} />
       </Routes>
     </BrowserRouter>
-    );
-
+  );
 };
 export default App;
