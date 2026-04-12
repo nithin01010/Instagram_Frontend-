@@ -2,7 +2,7 @@ import React from "react";
 import { getdetails } from "../api/functions";
 
 interface data {
-  url: string;
+  url?: string;
 }
 
 const picture = ({ url }: data) => {

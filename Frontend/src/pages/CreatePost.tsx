@@ -18,7 +18,6 @@ const CreatePost = () => {
     const file = e.target.files?.[0];
     if (file) {
       setSelectedFile(file);
-      // Create a local URL for the selected image to show as a preview
       const previewUrl = URL.createObjectURL(file);
       setImagePreview(previewUrl);
     }
@@ -43,6 +42,10 @@ const CreatePost = () => {
               if (selectedFile) {
                 setIsSubmitting(true);
                 try {
+                  await createPost({
+                    file: "https://picsum.photos/seed/Nithin24/200/200",
+                    caption,
+                  });
                   alert("Post created successfully!");
                   navigate("/profile");
                 } catch (error) {

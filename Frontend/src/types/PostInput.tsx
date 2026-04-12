@@ -1,4 +1,4 @@
 export interface PostInputTy {
-  file: File;
+  file: string;
   caption: string;
 }

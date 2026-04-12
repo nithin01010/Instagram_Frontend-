@@ -1,12 +1,14 @@
 import React from "react";
 import Button from "../../../components/button";
 import { useState } from "react";
-import { signup } from "../api/signup";
+import { signup } from "../api/signUp";
+import { useNavigate } from "react-router-dom";
 const SignUp_box = () => {
   const [UserName, setUserName] = useState("");
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  const signUp = signup(UserName, Email, Password);
+  const navigate = useNavigate();
+  const signUp = signup(UserName, Email, Password, navigate);
   // const signUp = signup()
   return (
     <div className="flex justify-center items-center h-screen">

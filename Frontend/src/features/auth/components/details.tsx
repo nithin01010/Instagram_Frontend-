@@ -3,8 +3,8 @@ import { getdetails } from "../api/functions";
 // import { Interface } from "readline";
 
 interface Data {
-  name: string;
-  bio: string;
+  name?: string;
+  bio?: string;
 }
 
 const Details = ({ name, bio }: Data) => {

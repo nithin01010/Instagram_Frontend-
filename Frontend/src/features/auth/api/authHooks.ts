@@ -46,10 +46,9 @@ export const useRequireAuth = (): boolean => {
       navigate("/", { replace: true });
       return;
     }
-
     const verify = async () => {
       try {
-        const res = await fetch(root + "/checkToken", {
+        const res = await fetch(root + "users/me", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

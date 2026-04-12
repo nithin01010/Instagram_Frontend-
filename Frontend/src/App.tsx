@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import Login from "./pages/login";
+import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import Profile from "./pages/profile";
+import Profile from "./pages/Profile";
 import CreatePost from "./pages/CreatePost";
 import ViewPost from "./pages/ViewPost";
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/create-post" element={<CreatePost />} />
-        <Route path="/view-post" element={<ViewPost id="hf" />} />
+        {/* <Route path="/view-post" element={<ViewPost id= "hf" />} /> */}
       </Routes>
     </BrowserRouter>
   );
