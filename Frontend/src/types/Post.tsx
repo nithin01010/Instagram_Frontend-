@@ -7,4 +7,6 @@ export interface PostTy {
   created_at: string;
   is_deleted: boolean;
   updated_at: string;
+  like_count: number;
+  no_of_view: number;
 }

@@ -3,6 +3,7 @@ import { getdetails } from "../api/functions";
 
 interface data {
   url?: string;
+  // id?:string
 }
 
 const picture = ({ url }: data) => {

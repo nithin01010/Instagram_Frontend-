@@ -1,7 +1,7 @@
 import { root } from "./config";
 
-export const postDetails = async (id: string) => {
-  const data = await fetch(root + `post/${id}`, {
+export const postDetails = async (id?: string) => {
+  const data = await fetch(root + `posts/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

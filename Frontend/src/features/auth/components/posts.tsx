@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import type { PostTy } from "../../../types/Post";
 import { userPost } from "../api/userPosts";
+import { useNavigate } from "react-router-dom";
 
 const Posts = ({ id }: { id: string }) => {
   const [post, setPost] = useState<PostTy[]>([]);
+  const navigate = useNavigate()
   useEffect(() => {
     const fectPosts = async () => {
       const data = await userPost(id);
@@ -28,6 +30,7 @@ const Posts = ({ id }: { id: string }) => {
           <img
             key={epost.id}
             src={epost.media_url}
+            onClick={() => navigate(`/view-post/${epost.id}`)}
             alt="Instagram post"
             className="aspect-square object-cover w-full h-full hover:opacity-90 transition-opacity cursor-pointer"
           />

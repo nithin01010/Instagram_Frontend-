@@ -13,10 +13,12 @@ import Button from "../components/button";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../features/auth/api/logOut";
 
-const profile = () => {
+const Profile = () => {
   const check = useRedirectIfLoggedIn();
-  // if()
+  const authenticated = useRequireAuth();
+  const navigate = useNavigate();
   const [data, setData] = useState<UserDetailsTy | null>(null);
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await getdetails();
@@ -26,8 +28,6 @@ const profile = () => {
     fetchData();
   }, []);
 
-  const authenticated = useRequireAuth();
-  const navigate = useNavigate();
   if (!authenticated) return null;
 
   return (
@@ -44,9 +44,7 @@ const profile = () => {
           <Details name={data?.username} bio={data?.bio} />
         </div>
       </div>
-      {data && (
-        <Posts id={data.id || (data as any)._id || (data as any).user_id} />
-      )}
+      {data && <Posts id={data.id} />}
       <div className="fixed bottom-6 right-6">
         <Button text="+ Create Post" onClick={() => navigate("/create-post")} />
       </div>
@@ -54,4 +52,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;
