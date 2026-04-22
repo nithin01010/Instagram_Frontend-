@@ -1,6 +1,6 @@
 import { root } from "./config";
 
-const updatePost = async (postiId: string, newCaption: string) => {
+const updatePost = async (postiId: string, newCaption?: string) => {
   const funct = await fetch(root + `posts/${postiId}`, {
     method: "PATCH",
     headers: {

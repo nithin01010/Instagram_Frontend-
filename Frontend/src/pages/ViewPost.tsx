@@ -22,7 +22,6 @@ const ViewPost: React.FC = () => {
         setLoading(false);
       }
     };
-
     if (id) {
       fetchPost();
     }

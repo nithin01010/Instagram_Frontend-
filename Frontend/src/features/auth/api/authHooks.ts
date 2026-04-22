@@ -41,7 +41,7 @@ export const useRequireAuth = (): boolean => {
 
   useEffect(() => {
     const token = localStorage.getItem("access_token");
-    console.log(token)
+    console.log(token);
     if (!token || token === "undefined") {
       navigate("/", { replace: true });
       return;
