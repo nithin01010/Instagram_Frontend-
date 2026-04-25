@@ -5,8 +5,8 @@ export const deletePost = async (id?: string) => {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
     },
+    credentials: "include",
   });
 
   if (!res.ok) {

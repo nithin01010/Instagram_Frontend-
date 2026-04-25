@@ -5,8 +5,8 @@ const feedPost = async (limit: number, skip: number) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
     },
+    credentials: "include",
   });
   if (!res.ok) {
     alert("Unable to fetch posts");

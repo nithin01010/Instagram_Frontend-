@@ -14,8 +14,8 @@ export const createPost = async ({ file, caption }: PostInputTy) => {
       // DO NOT set "Content-Type": "multipart/form-data" manually!
       "Content-Type": "application/json",
       // The browser must set it automatically so it can include the boundary string.
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
     },
+    credentials: "include",
     body: JSON.stringify({
       caption: caption,
       media_url: file,

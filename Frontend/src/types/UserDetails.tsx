@@ -5,4 +5,6 @@ export interface UserDetailsTy {
   bio: string;
   profile_pic_url: string;
   created_at: string;
+  follower_count: number;
+  following_count: number;
 }

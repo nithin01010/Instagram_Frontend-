@@ -4,6 +4,7 @@ import { userPost } from "../api/userPosts";
 import { useNavigate } from "react-router-dom";
 
 const Posts = ({ id }: { id: string }) => {
+  // console.log()
   const [post, setPost] = useState<PostTy[]>([]);
   const [isLoading, setLoading] = useState(false);
   const [hasMore, setMore] = useState(true);

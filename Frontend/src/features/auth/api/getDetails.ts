@@ -7,8 +7,8 @@ export const getdetails = async () => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
       },
+      credentials: "include",
     });
     if (res.status !== 200) {
       throw new Error("Invalid token");

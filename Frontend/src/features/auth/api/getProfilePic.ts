@@ -6,8 +6,8 @@ const getProfilePic = async (id: string) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
     },
+    credentials: "include",
   });
   if (!res.ok) {
     alert("unable to load profile pic");

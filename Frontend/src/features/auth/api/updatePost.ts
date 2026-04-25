@@ -5,8 +5,8 @@ const updatePost = async (postiId: string, newCaption?: string) => {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("access_token")}`,
     },
+    credentials: "include",
     body: JSON.stringify({
       caption: newCaption,
     }),

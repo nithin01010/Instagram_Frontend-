@@ -17,6 +17,7 @@ export const signup = (
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           username: UserName,
           email: Email,
@@ -34,7 +35,6 @@ export const signup = (
       // redirect
       const data = await res.json();
       console.log(data);
-      localStorage.setItem("access_token", data.access_token);
       alert("Account created successfully");
       navigate("/profile");
     } catch (err) {

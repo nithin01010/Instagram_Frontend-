@@ -10,6 +10,7 @@ export const login = (UserName: string, Password: string) => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           email: UserName,
           password: Password,
@@ -20,7 +21,6 @@ export const login = (UserName: string, Password: string) => {
         throw new Error(res.statusText);
       }
       const data = await res.json();
-      localStorage.setItem("access_token", data.access_token);
       window.location.href = "/profile";
     } catch (err) {
       alert("Invalid credentials: " + err);

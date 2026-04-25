@@ -13,14 +13,24 @@ export const useRedirectIfLoggedIn = (): boolean => {
   // handles side effects
   useEffect(() => {
     const run = async () => {
-      const token = localStorage.getItem("access_token");
-
-      if (!token || token === "undefined") {
-        // No auth token
+      // with sessions we just rely on the server response (e.g., calling users/me would be better but for now let's just assume we check session some other way)
+      // actually useRedirectIfLoggedIn should probably call /users/me to see if logged in.
+      // Let's call /users/me to verify session
+      try {
+        const res = await fetch(root + "users/me", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
+        if (res.status === 200) {
+          navigate("/profile", { replace: true });
+        } else {
+          setChecking(false);
+        }
+      } catch (err) {
         setChecking(false);
-        return;
-      } else {
-        navigate("/profile", { replace: true });
       }
     };
 
@@ -40,20 +50,15 @@ export const useRequireAuth = (): boolean => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("access_token");
-    console.log(token);
-    if (!token || token === "undefined") {
-      navigate("/", { replace: true });
-      return;
-    }
+    // Removed localStorage token check since we are using sessions.
     const verify = async () => {
       try {
         const res = await fetch(root + "users/me", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
           },
+          credentials: "include",
         });
 
         if (res.status !== 200) {
