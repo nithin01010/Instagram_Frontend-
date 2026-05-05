@@ -53,6 +53,7 @@ export const useRequireAuth = (): boolean => {
     // Removed localStorage token check since we are using sessions.
     const verify = async () => {
       try {
+        // return 
         const res = await fetch(root + "users/me", {
           method: "GET",
           headers: {

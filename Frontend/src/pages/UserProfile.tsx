@@ -5,9 +5,9 @@ import userData from '../features/auth/api/userData';
 
 const UserProfile = () => {
     const { name } = useParams<{ name: string }>(); 
-    // const data = userData(name);
+    const data = userData(name!);
   return (
-    <Profile isowner={false}/>
+    <Profile isowner={false} udata={data} />
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import Picture from "../features/auth/components/picture";
 import Details from "../features/auth/components/details";
 import Posts from "../features/auth/components/posts";
@@ -26,8 +26,7 @@ const Profile = ({ isowner = true, udata }: owner) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const result = isowner? (await getdetails()): udata;
-      const result = await getdetails();
+      const result = isowner ? await getdetails() : udata;
       console.log("Fetched user data:", result);
       if (result) setData(result);
     };
@@ -65,3 +64,4 @@ const Profile = ({ isowner = true, udata }: owner) => {
 };
 
 export default Profile;
+
